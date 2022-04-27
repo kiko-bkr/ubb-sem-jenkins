@@ -40,28 +40,6 @@
   </dependencies>
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.7.201606060606</version>
-        <executions>
-            <execution>
-                <id>jacoco-initialize</id>
-                <goals>
-                    <goal>prepare-agent</goal>
-                </goals>
-            </execution>
-            <execution>
-                <id>jacoco-site</id>
-                <phase>package</phase>
-                <goals>
-                    <goal>report</goal>
-                </goals>
-            </execution>
-        </executions>
-      </plugin>
-    </plugins>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -84,7 +62,7 @@
           <configuration>
             <forkCount>3</forkCount>
             <reuseForks>true</reuseForks>
-            <argLine>@{argLine} ${surefireArgLine} -XX:PermSize=128m -XX:MaxPermSize=512m</argLine>
+            <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
           </configuration>
         </plugin>
         <plugin>
